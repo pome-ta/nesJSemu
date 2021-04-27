@@ -25,6 +25,4 @@ export const parse = (nesBuffer) => {
     characterROM: nes.slice(characterROMStart, characterROMEnd - 1),
   };
   return nesROM;
-
-  //console.log(nes);
 };
