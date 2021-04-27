@@ -1,10 +1,13 @@
+'use strict';
+
 const express = require('express');
 
 // Setup
 const app = express();
 const port = process.env['WEB_APP_PORT'];
 
-app.use(express.static(`${__dirname}/pub`));
+//app.use(express.static(`${__dirname}/public`));
+app.use(express.static(__dirname + '/public'));
 
 // Launch app
 app.listen(port, () => {
