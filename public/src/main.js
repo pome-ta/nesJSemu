@@ -10,4 +10,4 @@ fetch('../static/roms/nestest.nes')
     });
     //.then(data => console.log(data));
 
-console.log('hoge');
+console.log('main');
