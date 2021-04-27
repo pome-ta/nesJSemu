@@ -1,4 +1,3 @@
-import log from './helper/log.js';
 
 const NES_HEADER_SIZE = 0x0010;
 const PROGRAM_ROM_SIZE = 0x4000;

@@ -5,6 +5,7 @@ export class NES {
     console.log('nes2');
     const p = parse(nes);
     console.log({p});
+    console.log(typeof p);
     //const { characterROM, programROM, isHorizontalMirror } = parse(nes);
   }
 }
