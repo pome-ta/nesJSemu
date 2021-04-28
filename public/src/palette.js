@@ -29,3 +29,4 @@ export default class Palette {
     this.ram[this.getPaletteAddr(addr)] = data;
   }
 }
+

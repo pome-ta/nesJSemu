@@ -1,4 +1,4 @@
-/* @flow */
+// todo: 型整理
 
 //import type { Byte, Word } from '../types/common';
 
