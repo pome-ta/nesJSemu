@@ -1,7 +1,9 @@
 import { parse } from './parser.js';
 import Rom from './rom.js';
 import Ram from './ram.js';
-import PpuBus from './bus/ppu-bus.js'
+import PpuBus from './bus/ppu-bus.js';
+import Interrupts from './interrupts.js';
+
 
 export class NES {
   load(nes) {
@@ -19,7 +21,8 @@ export class NES {
     }
     this.programROM = new Rom(programROM);
     this.ppuBus = new PpuBus(this.characterMem);
-    console.log(this.ppuBus);
+    this.interrupts = new Interrupts();
+    console.log(this.interrupts);
     
     
   }
