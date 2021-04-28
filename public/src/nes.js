@@ -3,9 +3,11 @@ import Rom from './rom.js';
 import Ram from './ram.js';
 import PpuBus from './bus/ppu-bus.js';
 import Interrupts from './interrupts.js';
+
 import Ppu from './ppu.js';
 import Dma from './dma.js';
 import CpuBus from './bus/cpu-bus.js';
+import Cpu from './cpu.js';
 
 
 export class NES {
@@ -25,6 +27,7 @@ export class NES {
     this.programROM = new Rom(programROM);
     this.ppuBus = new PpuBus(this.characterMem);
     this.interrupts = new Interrupts();
+    
     this.ppu = new Ppu(this.ppuBus, this.interrupts, ppuConfig);
     this.dma = new Dma(this.ram, this.ppu);
     this.cpuBus = new CpuBus(
@@ -33,7 +36,9 @@ export class NES {
       this.ppu,
       this.dma
     );
-    console.log(this.cpuBus);
+    this.cpu = new Cpu(this.cupBus, this.interrupts);
+    this.cpu.reset();
+    //console.log(this.cpu);
     
     
   }
