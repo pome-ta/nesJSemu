@@ -3,6 +3,7 @@ import Rom from './rom.js';
 import Ram from './ram.js';
 import PpuBus from './bus/ppu-bus.js';
 import Interrupts from './interrupts.js';
+import Ppu from './ppu.js';
 
 
 export class NES {
@@ -22,7 +23,8 @@ export class NES {
     this.programROM = new Rom(programROM);
     this.ppuBus = new PpuBus(this.characterMem);
     this.interrupts = new Interrupts();
-    console.log(this.interrupts);
+    this.ppu = new Ppu(this.ppuBus, this.interrupts, ppuConfig);
+    console.log(this.ppu);
     
     
   }
