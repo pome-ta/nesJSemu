@@ -19,10 +19,15 @@ export const parse = (nesBuffer) => {
   const characterROMStart = NES_HEADER_SIZE + programROMPages * PROGRAM_ROM_SIZE;
   const characterROMEnd = characterROMStart + characterROMPages * CHARACTER_ROM_SIZE;
   
+  const characterROM = new Uint8Array(nes.slice(characterROMStart, characterROMEnd - 1));
+  
   const nesROM = {
     isHorizontalMirror,
     programROM: nes.slice(NES_HEADER_SIZE, characterROMStart - 1),
-    characterROM: nes.slice(characterROMStart, characterROMEnd - 1),
+    characterROM,
   };
+  console.log(nes.length);
+  //console.log({characterROM});
+  
   return nesROM;
 };
