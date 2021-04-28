@@ -12,3 +12,4 @@ export default class Rom {
     return this.rom[addr];
   }
 }
+
