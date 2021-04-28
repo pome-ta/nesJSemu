@@ -16,9 +16,12 @@ export class NES {
     let hoge = 0;
     for (let i = 0; i < characterROM.length; i++) {
       hoge += i;
+      this.characterMem.write(i, characterROM[i]);
     }
-    console.log(hoge);
-    console.log(this.characterMem[0]);
+    //console.log(hoge);
+    this.characterMem.write(0, 1);
+    console.log(this.characterMem);
+    console.log(characterROM[2]);
     // copy charactorROM to internal RAM
     /*
     for (let i = 0; i < characterROM.length; i++) {
