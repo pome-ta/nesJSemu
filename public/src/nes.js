@@ -4,6 +4,7 @@ import Ram from './ram.js';
 import PpuBus from './bus/ppu-bus.js';
 import Interrupts from './interrupts.js';
 import Ppu from './ppu.js';
+import Dma from './dma.js';
 
 
 export class NES {
@@ -24,7 +25,8 @@ export class NES {
     this.ppuBus = new PpuBus(this.characterMem);
     this.interrupts = new Interrupts();
     this.ppu = new Ppu(this.ppuBus, this.interrupts, ppuConfig);
-    console.log(this.ppu);
+    this.dma = new Dma(this.ram, this.ppu);
+    console.log(this.dma);
     
     
   }
