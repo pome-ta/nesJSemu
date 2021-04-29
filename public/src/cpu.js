@@ -1,8 +1,8 @@
 // todo: 型整理
 // import type { Byte, Word } from '../types/common';
 // import log from '../helper/log';
-import CpuBus from './bus/cpu-bus.js';
-import Interrupts from './interrupts.js';
+//import CpuBus from './bus/cpu-bus.js';
+//import Interrupts from './interrupts.js';
 import * as op from './opcode.js';
 
 // import type { AddressingMode, OpecodeProps } from './opcode';

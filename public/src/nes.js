@@ -59,7 +59,7 @@ export class NES {
         break;
       }
     }
-    console.log('loop');
+    //console.log('loop');
     // console.timeEnd('loop'); // eslint-disable-line no-console
     requestAnimationFrame(this.frame);
   }

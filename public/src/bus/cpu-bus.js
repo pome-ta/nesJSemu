@@ -1,6 +1,6 @@
-import Rom from '../rom.js';
+//import Rom from '../rom.js';
 //import Ram from '../ram.js';
-import Ppu from '../ppu.js';
+//import Ppu from '../ppu.js';
 // import Keypad from '../keypad';
 //import Dma from '../dma.js';
 // import Apu from '../apu';
@@ -30,7 +30,7 @@ export default class CpuBus {
     } else if (addr === 0x4016) {
       // TODO Add 2P
       // return +this.keypad.read();
-      console.log('return: +this.keypad.read();');
+      //console.log('return: +this.keypad.read();');
 
     } else if (addr >= 0xC000) {
       // Mirror, if prom block number equals 1
@@ -63,7 +63,7 @@ export default class CpuBus {
         this.dma.write(data);
       } else if (addr === 0x4016) {
         // TODO Add 2P
-        console.log('fixme: Add 2P')
+        //console.log('fixme: Add 2P')
         // this.keypad.write(data);
       } else {
         // APU
