@@ -15,55 +15,51 @@ export class NES {
     this.frame = this.frame.bind(this);
     this.canvasRenderer = new CanvasRenderer('nes');
   }
+
   load(nes) {
-    console.log('nes');
-    
     const { characterROM, programROM, isHorizontalMirror } = parse(nes);
     const ppuConfig = {
       isHorizontalMirror,
     };
     this.ram = new Ram(2048);
     this.characterMem = new Ram(0x4000);
-    
+
     for (let i = 0; i < characterROM.length; i++) {
       this.characterMem.write(i, characterROM[i]);
     }
+
     this.programROM = new Rom(programROM);
     this.ppuBus = new PpuBus(this.characterMem);
     this.interrupts = new Interrupts();
     this.ppu = new Ppu(this.ppuBus, this.interrupts, ppuConfig);
     this.dma = new Dma(this.ram, this.ppu);
-    //console.log(this.ppu);
-    //console.log(this.dma);
     this.cupBus = new CpuBus(
       this.ram,
       this.programROM,
       this.ppu,
       this.dma
     );
-    //console.log(this.cupBus);
     this.cpu = new Cpu(this.cupBus, this.interrupts);
-    //console.log(this.cpu);
     this.cpu.reset();
-    //console.log(this.cpu);
   }
-  
+
   frame() {
     // console.time('loop') // eslint-disable-line no-console
     while (true) { // eslint-disable-line no-constant-condition
-      let cycle: number = 0;
+      let cycle = 0;
       if (this.dma.isDmaProcessing) {
         this.dma.runDma();
         cycle = 514;
       }
       cycle += this.cpu.run();
       const renderingData = this.ppu.run(cycle * 3);
-      this.apu.run(cycle);
+      // this.apu.run(cycle);
       if (renderingData) {
         this.canvasRenderer.render(renderingData);
         break;
       }
     }
+    console.log('loop');
     // console.timeEnd('loop'); // eslint-disable-line no-console
     requestAnimationFrame(this.frame);
   }

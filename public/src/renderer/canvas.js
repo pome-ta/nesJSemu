@@ -1,7 +1,7 @@
 import { colors } from './colors.js';
 
 export default class CanvasRenderer {
-  
+
   constructor(elementName) {
   const canvas = document.getElementById(elementName);
     this.ctx = canvas.getContext('2d');
@@ -22,7 +22,7 @@ export default class CanvasRenderer {
     return !((sprite[y % 8] && sprite[y % 8][x % 8] % 4) === 0);
   }
 
-  render(data: RenderingData) {
+  render(data) {
     const { background, sprites, palette } = data;
     if (background) {
       this.renderBackground(background, palette);

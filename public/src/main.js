@@ -7,7 +7,7 @@ fetch('../static/roms/nestest.nes')
     .then((nesFile) => {
       const nes = new NES();
       nes.load(nesFile);
+      nes.start();
     });
     //.then(data => console.log(data));
-
 //console.log('main');
