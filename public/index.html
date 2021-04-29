@@ -5,34 +5,18 @@
 <title>nesJSemu</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
-<link rel="stylesheet" href="./style/layoutChecker.css">
+<link rel="stylesheet" href="./style/layout.css">
 
 
 <script src="https://cdn.jsdelivr.net/npm/eruda@2.4.1/eruda.min.js"></script>
 <script>eruda.init();</script>
 
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  #nes-div {
-    width: 1px;
-    height: 1px;
-    z-index: 1;
-    transform: translateZ(1px);
-  }
 
-  canvas {
-    transform-origin: left top;
-  }
-</style>
 <script type="module" src="./src/main.js"></script>
 </head>
 <body>
-  <!-- <div id="nes-dev"></div> -->
+  <!-- <div id="nes-div"></div> -->
   <canvas id="nes" width="256" height="224"></canvas>
   <h1>NES Hello, World!</h1>
 </body>
