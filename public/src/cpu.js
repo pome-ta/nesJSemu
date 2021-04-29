@@ -77,10 +77,10 @@ export default class Cpu {
       P: { ...defaultRegisters.P }
     };
     this.registers.PC = this.read(0xFFFC, "Word") || 0x8000;
-    console.log(this.registers.PC);
+    //console.log(this.registers.PC);
     // log.info(`pc = ${(this.registers.PC).toString(16)}`);
     //console.info(`pc = ${(this.registers.PC).toString(16)}`);
-    //console.log(`pc = ${(this.registers.PC).toString(16)}`);
+    console.log(`pc = ${(this.registers.PC).toString(16)}`);
   }
 
   getAddrOrDataWithAdditionalCycle(mode) {
