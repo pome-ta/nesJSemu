@@ -7,9 +7,14 @@ import Interrupts from './interrupts.js';
 import Ppu from './ppu.js';
 import Dma from './dma.js';
 import Cpu from './cpu.js';
+import CanvasRenderer from './renderer/canvas.js';
 
 
 export class NES {
+  constructor() {
+    this.frame = this.frame.bind(this);
+    this.canvasRenderer = new CanvasRenderer('nes');
+  }
   load(nes) {
     console.log('nes');
     
@@ -40,6 +45,36 @@ export class NES {
     this.cpu = new Cpu(this.cupBus, this.interrupts);
     //console.log(this.cpu);
     this.cpu.reset();
-    console.log(this.cpu);
+    //console.log(this.cpu);
+  }
+  
+  frame() {
+    // console.time('loop') // eslint-disable-line no-console
+    while (true) { // eslint-disable-line no-constant-condition
+      let cycle: number = 0;
+      if (this.dma.isDmaProcessing) {
+        this.dma.runDma();
+        cycle = 514;
+      }
+      cycle += this.cpu.run();
+      const renderingData = this.ppu.run(cycle * 3);
+      this.apu.run(cycle);
+      if (renderingData) {
+        this.canvasRenderer.render(renderingData);
+        break;
+      }
+    }
+    // console.timeEnd('loop'); // eslint-disable-line no-console
+    requestAnimationFrame(this.frame);
+  }
+
+  start() {
+    requestAnimationFrame(this.frame);
+  }
+
+  close() {
+    console.log('close');
+    //this.apu.close();
   }
 }
+
