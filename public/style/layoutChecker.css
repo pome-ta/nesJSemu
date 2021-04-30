@@ -1,5 +1,8 @@
 @charset "utf-8";
 
+/* reference
+ * https://coliss.com/articles/build-websites/operation/css/my-favorite-css-hack-by-gajus.html
+ */
 
 * { background-color: rgba(255,0,0,.2); }
 * * { background-color: rgba(0,255,0,.2); }
