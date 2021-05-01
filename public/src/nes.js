@@ -8,6 +8,7 @@ import Ppu from './ppu.js';
 import Dma from './dma.js';
 import Cpu from './cpu.js';
 import CanvasRenderer from './renderer/canvas.js';
+import Debugger from './debugger.js';
 
 
 export class NES {
@@ -18,6 +19,11 @@ export class NES {
 
   load(nes) {
     const { characterROM, programROM, isHorizontalMirror } = parse(nes);
+    const dev = true;
+    if (dev) {
+      const nesDebugger = new Debugger();
+      nesDebugger.setup(programROM);
+    }
     const ppuConfig = {
       isHorizontalMirror,
     };

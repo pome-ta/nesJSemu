@@ -67,7 +67,7 @@ export default class CpuBus {
         // this.keypad.write(data);
       } else {
         // APU
-        console.log('fixme: APU');
+        //console.log('fixme: APU');
         // this.apu.write(addr - 0x4000, data);
       }
     }
