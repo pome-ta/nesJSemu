@@ -19,7 +19,7 @@ export class NES {
 
   load(nes) {
     const { characterROM, programROM, isHorizontalMirror } = parse(nes);
-    const dev = true;
+    const dev = false;
     if (dev) {
       const nesDebugger = new Debugger();
       nesDebugger.setup(programROM);
