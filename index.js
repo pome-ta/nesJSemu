@@ -1,5 +1,6 @@
 'use strict';
 
+
 const express = require('express');
 
 // Setup
@@ -15,4 +16,3 @@ app.listen(port, () => {
   console.log(`Launching app... http://localhost:${port}` + '\n');
   //console.log({app});
 });
-

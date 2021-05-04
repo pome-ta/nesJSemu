@@ -1,9 +1,14 @@
 # nesJSemu
 
-
-
-
 [play.js](https://playdotjs.com) で、NES エミュレーター をやるリポジトリ
+
+
+
+## todo
+
+
+`create-pluse.js` を先に書き出してる
+
 
 
 ## モチベーション
