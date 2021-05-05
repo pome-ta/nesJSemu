@@ -4,7 +4,7 @@ export default class Oscillator {
   constructor(type) {
     try {
       //todo: `window.` ?
-      const AudioContext = window.AudioContext || window.webkitAudioContext
+      const window.AudioContext = window.AudioContext || window.webkitAudioContext
       this.context = new AudioContext();
     } catch (e) {
       throw new Error('Web Audio isn\'t supported in this browser!');
