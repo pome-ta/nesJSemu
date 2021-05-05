@@ -4,7 +4,7 @@ export default class Oscillator {
   constructor(type) {
     try {
       //todo: `window.` ?
-      const window.AudioContext = window.AudioContext || window.webkitAudioContext
+      const AudioContext = window.AudioContext || window.webkitAudioContext
       this.context = new AudioContext();
     } catch (e) {
       throw new Error('Web Audio isn\'t supported in this browser!');
@@ -22,7 +22,7 @@ export default class Oscillator {
     this.setPulseWidth(0.5);
     this.playing = false;
   }
-  
+
   start() {
     if (this.playing) {
       this.stop();
@@ -30,7 +30,7 @@ export default class Oscillator {
     this.playing = true;
     this.oscillator.start(0);
   }
-  
+
   stop() {
     if (this.playing) {
       this.playing = false;
@@ -39,11 +39,11 @@ export default class Oscillator {
       this.setPulseWidth(0.5);
     }
   }
-  
+
   close() {
     this.context.close();
   }
-  
+
   createOscillator(options = {}) {
     const oscillator = this.context.createOscillator();
     if (options.kind) oscillator.type = options.kind;
@@ -63,11 +63,11 @@ export default class Oscillator {
     this.gain.connect(this.context.destination);
     return oscillator;
   }
-  
+
   setPulseWidth(pulseWidth) {
     this.oscillator.setPeriodicWave(this.waves[`${pulseWidth}`]);
   }
-  
+
   setFrequency(frequency) {
     this.oscillator.frequency.value = frequency;
   }

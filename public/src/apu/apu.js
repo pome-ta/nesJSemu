@@ -59,13 +59,13 @@ export default class Apu {
   }
 
   updateSweepAndLengthCounter() {
-    this.square.forEach((s: Square): void => s.updateSweepAndLengthCounter());
+    this.square.forEach((s)=> s.updateSweepAndLengthCounter());
     this.triangle.updateCounter();
     this.noise.updateCounter();
   }
 
   updateEnvelope() {
-    this.square.forEach((s): void => s.updateEnvelope());
+    this.square.forEach((s) => s.updateEnvelope());
     this.noise.updateEnvelope();
   }
 

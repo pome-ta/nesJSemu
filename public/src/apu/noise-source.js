@@ -2,7 +2,7 @@ export default class NoiseSource {
   constructor() {
     try {
       //todo: `window.` ?
-      const window.AudioContext = window.AudioContext || window.webkitAudioContext
+      const AudioContext = window.AudioContext || window.webkitAudioContext
       this.context = new AudioContext();
     } catch(e) {
       throw new Error('Web Audio isn\'t supported in this browser!');
@@ -10,7 +10,7 @@ export default class NoiseSource {
     this.createSource();
     this.playing = false;
   }
-  
+
   createSource() {
     const node = this.context.createBufferSource();
     const buffer = this.context.createBuffer(1, this.context.sampleRate, this.context.sampleRate);
@@ -30,17 +30,18 @@ export default class NoiseSource {
     this.setVolume(0);
     this.source.start(0);
   }
-  
+
   setVolume(volume) {
     volume = Math.max(0, Math.min(1, volume));
     // this.gain.gain.value = volume;
   }
-  
+
   setFrequency(frequency) {
     // this.bandpass.frequency.value = frequency > 22050 ? 22050 : frequency;
   }
-  
+
   close() {
     this.context.close();
   }
 }
+
