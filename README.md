@@ -9,7 +9,9 @@
 
 `create-pluse.js` を先に書き出してる
 
+## test rom
 
+[https://wiki.nesdev.com/w/index.php/Emulator_tests](https://wiki.nesdev.com/w/index.php/Emulator_tests)
 
 ## モチベーション
 
