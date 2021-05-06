@@ -3,7 +3,6 @@ import pulse from './pulse.js';
 export default class Oscillator {
   constructor(type) {
     try {
-      //todo: `window.` ?
       const AudioContext = window.AudioContext || window.webkitAudioContext
       this.context = new AudioContext();
     } catch (e) {
@@ -11,6 +10,9 @@ export default class Oscillator {
     }
     this.type = type || 'square';
     this.oscillator = this.createOscillator({ kind: this.type });
+
+    // todo: ビジュアル的に表示させたい
+    this.analyser = new AnalyserNode(this.context, { smoothingTimeConstant: 0.9 });
     /*
     console.log(pulse['0.125'].real);
     const pl0125_real = pulse['0.125'].real;

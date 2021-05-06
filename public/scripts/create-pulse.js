@@ -6,7 +6,7 @@ const create = (pulseWidth) => {
   const real = [0];
   const imag = [0];
   for (let i = 1; i < 4096; i += 1) {
-    const realTerm = 2 / (i * Math.PI) * Math.sin(Math.PI * i * pulseWidth);
+    const realTerm = 4 / (i * Math.PI) * Math.sin(Math.PI * i * pulseWidth);
     real.push(realTerm);
     imag.push(0);
   }
