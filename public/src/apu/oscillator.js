@@ -11,6 +11,17 @@ export default class Oscillator {
     }
     this.type = type || 'square';
     this.oscillator = this.createOscillator({ kind: this.type });
+    /*
+    console.log(pulse['0.125'].real);
+    const pl0125_real = pulse['0.125'].real;
+    const pl0125_imag = pulse['0.125'].imag;
+    console.log(pl0125_imag.length);
+    try {
+      this.context.createPeriodicWave(pl0125_real, pl0125_imag);
+    } catch(e) {
+      console.log(e.name);
+    }
+    */
 
     this.waves = {
       '0.125': this.context.createPeriodicWave(pulse['0.125'].real, pulse['0.125'].imag),

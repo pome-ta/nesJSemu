@@ -1,6 +1,9 @@
 {
   "name": "nesJSemu",
   "version": "1.0.0",
+  "scripts": {
+    "pulse": "node ./public/scripts/create-pulse.js"
+  },
   "dependencies": {
     "express": "4.17.1"
   }
