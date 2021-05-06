@@ -35,5 +35,5 @@ const json = `export default {
 }`
 
 
-fs.writeFileSync(path.resolve(__dirname, './pulse.js'), json);
+fs.writeFileSync(path.resolve(__dirname, '../src/apu/pulse.js'), json);
 
