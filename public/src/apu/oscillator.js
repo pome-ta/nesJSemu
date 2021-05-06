@@ -12,7 +12,7 @@ export default class Oscillator {
     this.oscillator = this.createOscillator({ kind: this.type });
 
     // todo: ビジュアル的に表示させたい
-    this.analyser = new AnalyserNode(this.context, { smoothingTimeConstant: 0.9 });
+    //this.analyser = new AnalyserNode(this.context, { smoothingTimeConstant: 0.9 });
     /*
     console.log(pulse['0.125'].real);
     const pl0125_real = pulse['0.125'].real;
