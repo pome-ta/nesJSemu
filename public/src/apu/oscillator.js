@@ -10,6 +10,8 @@ export default class Oscillator {
     }
     this.type = type || 'square';
     this.oscillator = this.createOscillator({ kind: this.type });
+    const fuga =this.context.createAnalyser();
+    console.log(fuga);
 
     // todo: ビジュアル的に表示させたい
     //this.analyser = new AnalyserNode(this.context, { smoothingTimeConstant: 0.9 });
