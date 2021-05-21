@@ -4,7 +4,8 @@ const {tapDown, tapMove, tapUp} = {
   tapUp: typeof document.ontouchend !== 'undefined' ? 'touchend' : 'mouseup',
 }
 
-
+const btns = document.getElementsByClassName('btn');
+console.log(btns[0]);
 
 export default class KeyEvents {
   constructor() { }

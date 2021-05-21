@@ -25,3 +25,16 @@ canvas {
   align-items: center;
   flex-direction: column;
 }
+
+
+
+.btn {
+  height: 4rem;
+  margin: 4rem;
+  background-color: maroon;
+  
+}
+
+.btn:active {
+  background-color: teal;
+}

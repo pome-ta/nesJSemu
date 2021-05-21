@@ -7,7 +7,7 @@ import Ram from './ram.js';
 import Dma from './dma.js';
 import CpuBus from './bus/cpu-bus.js';
 import PpuBus from './bus/ppu-bus.js'
-// todo: Keypad
+import Keypad from './keypad/keypad.js';
 import CanvasRenderer from './renderer/canvas.js';
 import Interrupts from './interrupts.js';
 
@@ -31,7 +31,7 @@ export class NES {
     const ppuConfig = {
       isHorizontalMirror,
     };
-    // todo: keypad
+    this.keypad = new Keypad();
     this.ram = new Ram(2048);
     this.characterMem = new Ram(0x4000);
     // copy charactorROM to internal RAM
