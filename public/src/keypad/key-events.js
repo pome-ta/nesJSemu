@@ -4,21 +4,31 @@ const {tapDown, tapMove, tapUp} = {
   tapUp: typeof document.ontouchend !== 'undefined' ? 'touchend' : 'mouseup',
 }
 
-const btns = document.getElementsByClassName('btn');
-console.log(btns[0]);
+const a_btn = document.getElementById('a');
+const b_btn = document.getElementById('b');
 
 export default class KeyEvents {
   constructor() { }
 
   setup(onKeyDown, onKeyUp) {
     if (typeof window !== 'undefined') {
-      document.addEventListener(tapDown, (event) => {
-        if (onKeyDown) onKeyDown(this.getKeyIndex(event.keyNum));
+      a_btn.addEventListener(tapDown, (e) => {
+        e.preventDefault();
+        if (onKeyDown) onKeyDown(0);
+        //console.log(a_btn);
+      });
+      a_btn.addEventListener(tapUp, () => {
+        if (onKeyUp) onKeyUp(0);
       });
 
-      document.addEventListener(tapUp, (event) => {
-        if (onKeyUp) onKeyUp(this.getKeyIndex(event.keyNum));
+      b_btn.addEventListener(tapDown, (e) => {
+        e.preventDefault();
+        if (onKeyDown) onKeyDown(3);
       });
+      b_btn.addEventListener(tapUp, () => {
+        if (onKeyUp) onKeyUp(3);
+      });
+
     }
   }
 

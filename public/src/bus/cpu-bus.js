@@ -8,12 +8,12 @@
 // import type { Word, Byte } from '../types/common';
 
 export default class CpuBus {
-  constructor(ram, programROM, ppu, /*keypad,*/ dma, apu) {
+  constructor(ram, programROM, ppu, keypad, dma, apu) {
     this.ram = ram;
     this.programROM = programROM;
     this.ppu = ppu;
     this.apu = apu;
-    // this.keypad = keypad;
+    this.keypad = keypad;
     this.dma = dma;
   }
 
@@ -29,7 +29,7 @@ export default class CpuBus {
       return data;
     } else if (addr === 0x4016) {
       // TODO Add 2P
-      // return +this.keypad.read();
+      return +this.keypad.read();
       //console.log('return: +this.keypad.read();');
 
     } else if (addr >= 0xC000) {
@@ -64,7 +64,7 @@ export default class CpuBus {
       } else if (addr === 0x4016) {
         // TODO Add 2P
         //console.log('fixme: Add 2P')
-        // this.keypad.write(data);
+        this.keypad.write(data);
       } else {
         // APU
         //console.log('fixme: APU');

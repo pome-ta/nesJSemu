@@ -48,6 +48,7 @@ export class NES {
       this.ram,
       this.programROM,
       this.ppu,
+      this.keypad,
       this.dma,
       this.apu,
     );

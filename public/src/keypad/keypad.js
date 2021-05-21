@@ -16,6 +16,7 @@ export default class Keypad {
 
   onKeyDown(index) {
     if (typeof index !== 'number') return;
+    //console.log('index', index);
     this.keyBuffer[index] = true;
   }
 
