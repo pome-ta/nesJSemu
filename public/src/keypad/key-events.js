@@ -6,6 +6,12 @@ const {tapDown, tapMove, tapUp} = {
 
 const a_btn = document.getElementById('a');
 const b_btn = document.getElementById('b');
+const e_btn = document.getElementById('e');
+const s_btn = document.getElementById('s');
+const u_btn = document.getElementById('u');
+const d_btn = document.getElementById('d');
+const l_btn = document.getElementById('l');
+const r_btn = document.getElementById('r');
 
 export default class KeyEvents {
   constructor() { }
@@ -15,7 +21,6 @@ export default class KeyEvents {
       a_btn.addEventListener(tapDown, (e) => {
         e.preventDefault();
         if (onKeyDown) onKeyDown(0);
-        //console.log(a_btn);
       });
       a_btn.addEventListener(tapUp, () => {
         if (onKeyUp) onKeyUp(0);
@@ -23,11 +28,63 @@ export default class KeyEvents {
 
       b_btn.addEventListener(tapDown, (e) => {
         e.preventDefault();
-        if (onKeyDown) onKeyDown(3);
+        if (onKeyDown) onKeyDown(1);
       });
       b_btn.addEventListener(tapUp, () => {
+        if (onKeyUp) onKeyUp(1);
+      });
+
+      e_btn.addEventListener(tapDown, (e) => {
+        e.preventDefault();
+        if (onKeyDown) onKeyDown(2);
+      });
+      e_btn.addEventListener(tapUp, () => {
+        if (onKeyUp) onKeyUp(2);
+      });
+
+      s_btn.addEventListener(tapDown, (e) => {
+        e.preventDefault();
+        if (onKeyDown) onKeyDown(3);
+      });
+      s_btn.addEventListener(tapUp, () => {
         if (onKeyUp) onKeyUp(3);
       });
+
+      u_btn.addEventListener(tapDown, (e) => {
+        e.preventDefault();
+        if (onKeyDown) onKeyDown(4);
+      });
+      u_btn.addEventListener(tapUp, () => {
+        if (onKeyUp) onKeyUp(4);
+      });
+
+
+      d_btn.addEventListener(tapDown, (e) => {
+        e.preventDefault(5);
+        if (onKeyDown) onKeyDown();
+      });
+      d_btn.addEventListener(tapUp, () => {
+        if (onKeyUp) onKeyUp(5);
+      });
+
+      l_btn.addEventListener(tapDown, (e) => {
+        e.preventDefault();
+        if (onKeyDown) onKeyDown(6);
+      });
+      l_btn.addEventListener(tapUp, () => {
+        if (onKeyUp) onKeyUp(6);
+      });
+
+
+      r_btn.addEventListener(tapDown, (e) => {
+        e.preventDefault();
+        if (onKeyDown) onKeyDown(7);
+      });
+      r_btn.addEventListener(tapUp, () => {
+        if (onKeyUp) onKeyUp(7);
+      });
+
+
 
     }
   }

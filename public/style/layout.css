@@ -27,10 +27,13 @@ canvas {
 }
 
 
-
+.controller {
+  display: flex;
+  justify-content: space-around;
+}
 .btn {
-  height: 4rem;
-  margin: 4rem;
+  /*height: 2rem;
+  margin: 2rem;*/
   background-color: maroon;
   
 }
