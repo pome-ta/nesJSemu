@@ -18,6 +18,7 @@ export default class KeyEvents {
 
   setup(onKeyDown, onKeyUp) {
     if (typeof window !== 'undefined') {
+      // xxx: `e.preventDefault();` ?
       a_btn.addEventListener(tapDown, (e) => {
         e.preventDefault();
         if (onKeyDown) onKeyDown(0);
@@ -83,8 +84,15 @@ export default class KeyEvents {
       r_btn.addEventListener(tapUp, () => {
         if (onKeyUp) onKeyUp(7);
       });
-
-
+      
+      // todo: keyboard
+      document.addEventListener('keydown', (event) => {
+              if (onKeyDown) onKeyDown(this.getKeyIndex(event.keyCode));
+            });
+      
+            document.addEventListener('keyup', (event) => {
+              if (onKeyUp) onKeyUp(this.getKeyIndex(event.keyCode));
+            });
 
     }
   }
