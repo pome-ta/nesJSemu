@@ -61,8 +61,8 @@ export default class KeyEvents {
 
 
       d_btn.addEventListener(tapDown, (e) => {
-        e.preventDefault(5);
-        if (onKeyDown) onKeyDown();
+        e.preventDefault();
+        if (onKeyDown) onKeyDown(5);
       });
       d_btn.addEventListener(tapUp, () => {
         if (onKeyUp) onKeyUp(5);
