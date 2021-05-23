@@ -2,18 +2,17 @@
 
 import { NES } from './nes.js';
 
-//fetch('../static/roms/nestest.nes')
-fetch('../static/roms/giko013.nes')
-//fetch('../static/roms/giko017.nes')
-//fetch('../static/roms/sakushi.nes')
-// fetch('../static/roms/db_apu.nes')
-//fetch('../static/roms/volumes.nes')
-//fetch('../static/roms/test01.nes')
-    .then((res) => res.arrayBuffer())
-    .then((nesFile) => {
-      const nes = new NES();
-      nes.load(nesFile);
-      nes.start();
-    });
-    //.then(data => console.log(data));
-//console.log('main');
+
+//const ROMDATA = 'test01';
+//const ROMDATA = 'giko013';
+const ROMDATA = 'nestest';
+
+const nes_path = new URL(`static/roms/${ROMDATA}.nes`, location.protocol + '//' + location.host + location.pathname).href
+
+fetch(nes_path)
+  .then((res) => res.arrayBuffer())
+  .then((nesFile) => {
+    const nes = new NES();
+    nes.load(nesFile);
+    nes.start();
+  });
