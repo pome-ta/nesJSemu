@@ -1,13 +1,6 @@
 import { tapUp, tapMove, tapDown} from '../eventUtil.js'
 
 
-// const {tapDown, tapMove, tapUp} = {
-//   tapDown: typeof document.ontouchstart !== 'undefined' ? 'touchstart' : 'mousedown',
-//   tapMove: typeof document.ontouchmove !== 'undefined' ? 'touchmove' : 'mousemove',
-//   tapUp: typeof document.ontouchend !== 'undefined' ? 'touchend' : 'mouseup',
-// }
-
-
 const a_btn = document.getElementById('a');
 const b_btn = document.getElementById('b');
 const e_btn = document.getElementById('e');
@@ -90,13 +83,13 @@ export default class KeyEvents {
       });
 
       // todo: keyboard
-      document.addEventListener('keydown', (event) => {
-              if (onKeyDown) onKeyDown(this.getKeyIndex(event.keyCode));
-            });
+      document.addEventListener('keydown', (e) => {
+        if (onKeyDown) onKeyDown(this.getKeyIndex(e.keyCode));
+      });
 
-            document.addEventListener('keyup', (event) => {
-              if (onKeyUp) onKeyUp(this.getKeyIndex(event.keyCode));
-            });
+      document.addEventListener('keyup', (e) => {
+        if (onKeyUp) onKeyUp(this.getKeyIndex(e.keyCode));
+      });
 
     }
   }
