@@ -10,15 +10,12 @@ export default class Oscillator {
     }
     this.type = type || 'square';
     this.oscillator = this.createOscillator({ kind: this.type });
-    
-
     this.waves = {
       '0.125': this.context.createPeriodicWave(pulse['0.125'].real, pulse['0.125'].imag),
       '0.25': this.context.createPeriodicWave(pulse['0.25'].real, pulse['0.25'].imag),
       '0.5': this.context.createPeriodicWave(pulse['0.5'].real, pulse['0.5'].imag),
       '0.75': this.context.createPeriodicWave(pulse['0.75'].real, pulse['0.75'].imag),
     };
-
     this.setPulseWidth(0.5);
     this.playing = false;
   }

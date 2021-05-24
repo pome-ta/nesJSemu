@@ -14,11 +14,16 @@ import Interrupts from './interrupts.js';
 import Debugger from './debugger.js';
 
 
+import { tapUp, tapMove, tapDown } from './eventUtil.js';
+
+const resetBtn = document.getElementById('reset');
+
 export class NES {
-  
+
   constructor() {
     this.frame = this.frame.bind(this);
     this.canvasRenderer = new CanvasRenderer('nes');
+    this.reset();
   }
 
   load(nes) {
@@ -79,6 +84,14 @@ export class NES {
 
   start() {
     requestAnimationFrame(this.frame);
+  }
+
+
+  reset() {
+    resetBtn.addEventListener(tapDown, () => {
+      console.log('reset');
+      this.cpu.reset();
+    });
   }
 
   close() {

@@ -1,8 +1,12 @@
-const {tapDown, tapMove, tapUp} = {
-  tapDown: typeof document.ontouchstart !== 'undefined' ? 'touchstart' : 'mousedown',
-  tapMove: typeof document.ontouchmove !== 'undefined' ? 'touchmove' : 'mousemove',
-  tapUp: typeof document.ontouchend !== 'undefined' ? 'touchend' : 'mouseup',
-}
+import { tapUp, tapMove, tapDown} from '../eventUtil.js'
+
+
+// const {tapDown, tapMove, tapUp} = {
+//   tapDown: typeof document.ontouchstart !== 'undefined' ? 'touchstart' : 'mousedown',
+//   tapMove: typeof document.ontouchmove !== 'undefined' ? 'touchmove' : 'mousemove',
+//   tapUp: typeof document.ontouchend !== 'undefined' ? 'touchend' : 'mouseup',
+// }
+
 
 const a_btn = document.getElementById('a');
 const b_btn = document.getElementById('b');
@@ -84,12 +88,12 @@ export default class KeyEvents {
       r_btn.addEventListener(tapUp, () => {
         if (onKeyUp) onKeyUp(7);
       });
-      
+
       // todo: keyboard
       document.addEventListener('keydown', (event) => {
               if (onKeyDown) onKeyDown(this.getKeyIndex(event.keyCode));
             });
-      
+
             document.addEventListener('keyup', (event) => {
               if (onKeyUp) onKeyUp(this.getKeyIndex(event.keyCode));
             });
@@ -97,13 +101,13 @@ export default class KeyEvents {
     }
   }
 
-  getKeyIndex(keyNum) {
-    switch (keyNum) {
-      case 88: return 0; // X  A 
+  getKeyIndex(keyCode) {
+    switch (keyCode) {
+      case 88: return 0; // X  A
       case 90: return 1; // Z  B
       case 65: return 2; // A  SELECT
       case 83: return 3; // S  START
-      case 38: return 4; // ↑  ↑  
+      case 38: return 4; // ↑  ↑
       case 40: return 5; // ↓  ↓
       case 37: return 6; // ←  ←
       case 39: return 7; // →  →
