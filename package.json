@@ -2,6 +2,7 @@
   "name": "nesJSemu",
   "version": "1.0.0",
   "scripts": {
+    "run": "node ./index.js",
     "pulse": "node ./public/scripts/create-pulse.js"
   },
   "dependencies": {
